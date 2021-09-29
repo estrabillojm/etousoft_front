@@ -8,7 +8,8 @@
                 
                 <v-icon name="account_circle"  class="mr-2 text-gray-500" />
                 <p class="text-gray-500 uppercase text-right">  
-                    {{ `${auth.first_name} ${auth.middle_name.charAt(0)}. ${auth.last_name}` }}
+                    <span v-if="auth.middle_name">{{ `${auth.first_name}  ${auth.middle_name.charAt(0)}. ${auth.last_name}` }}</span>
+                    <span v-else>{{ `${auth.first_name} ${auth.last_name}` }}</span>
                     <br>
                     <span class="text-sm">{{ auth.role }}</span>
                 </p>

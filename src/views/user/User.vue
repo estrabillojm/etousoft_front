@@ -24,7 +24,7 @@
                             <v-icon name="admin_panel_settings" title="Administrator" v-if="user.role == 'admin'"/>
                             <v-icon name="person_outline" class="text-gray-500" title="User" v-else/>
                         </td>
-                        <td>{{ user.last_name }} {{ user.suffix }}, {{ user.first_name }} {{ user.middle_name.charAt(0) }}.</td>
+                        <td>{{ user.last_name }} {{ user.suffix }}, {{ user.first_name }} <span v-if="user.middle_name">{{ user.middle_name.charAt(0) }}.</span></td>
                         <td>{{ user.contact }}</td>
                         <td>{{ user.city }}, {{ user.province }}</td>
                         <td class="text-center action">

@@ -6,12 +6,15 @@
 import { ref } from '@vue/reactivity'
 import { useStore } from 'vuex'
 import { onBeforeMount } from '@vue/runtime-core'
+import { useRoute } from 'vue-router'
 
 export default {
     setup(){
       const store = useStore()
 
-      const checkRole = () =>store.commit('user/CHECK_ROLE')
+      const userId = useRoute().params.id
+
+      const checkRole = () =>store.commit('user/CHECK_ROLE', userId)
       
       onBeforeMount(()=> checkRole())
       

@@ -13,8 +13,8 @@ const user = {
         count: null
     },
     mutations: {
-        CHECK_ROLE: (state)=>{
-            if(state.info.role == 'user'){
+        CHECK_ROLE: (state, id)=>{
+            if(state.info.role == 'user' && state.info.id != id){
                 router.push({ name: 'User' })
             }
         },  

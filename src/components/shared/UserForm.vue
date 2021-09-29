@@ -1,7 +1,7 @@
 <template>
     <v-layout>
     <template v-slot:content>
-    <Form  @submit="submitUser()" class="form-grid relative overflow-hidden" :validation-schema="schema" v-slot="{ errors }" v-if="auth.role == 'admin'">
+    <Form  @submit="submitUser()" class="form-grid relative overflow-hidden" :validation-schema="schema" v-slot="{ errors }" v-if="auth.role == 'admin' || auth.id == userId">
         <div class="form-group">
             <label for="" :class="{'is-invalid-label': errors.username}">Username</label>
             <Field
@@ -273,7 +273,7 @@ export default {
          cities.value = citiesHolder.value.filter(city => city.province_code == userData.province_id)
        }
 
-       const getUser = async (id)=> await store.dispatch('user/singleUser', id)
+        const getUser = async (id)=> await store.dispatch('user/singleUser', id)
         const eUser = ref(null);
         const userId = useRoute().params.id
 
@@ -407,7 +407,8 @@ export default {
             eUser,
             selectRegion,
             selectProvince,
-            auth
+            auth,
+            userId
         }
     }
 }

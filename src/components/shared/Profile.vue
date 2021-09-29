@@ -7,7 +7,7 @@
                 </div>
                 <div class="main-info" v-if="auth">
                     <h2 class="uppercase name">
-                        <span class="lastname blue">{{auth.last_name}} {{auth.suffix}},</span> <span class="firstname">{{auth.first_name}} {{auth.middle_name.charAt(0)}}.</span>
+                        <span class="lastname blue">{{auth.last_name}} {{auth.suffix}},</span> <span class="firstname">{{auth.first_name}} <span v-if="auth.middle_name">{{auth.middle_name.charAt(0)}}.</span> </span>
                     </h2>
                     <h3 class="uppercase">
                         {{ auth.brgy }}, {{ auth.city }}, {{ auth.province }}, {{ auth.region }}
